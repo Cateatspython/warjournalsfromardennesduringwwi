@@ -4,6 +4,7 @@ This project is an extension of the initiative taken by the Archives départemen
 - Les carnets de guerre d’Emile Faynot de Thilay
 - Le journal de guerre de Simone Camion de Vivier-au-court
 - Le journal d’occupation rédigé par Henri Genesseau, boulanger à Hannogne-Saint-Martin
+  
 These three journals all have a similar structure. They are made up of blocks of text corresponding to the observations described day by day. The first part contains information about the day and sometimes even the time. The second part is a account of the day. It is also useful to use tags to highlight important information, such as the names of people, places or events. The digitized documents are under a public reuse license following the deliberations of February 2, 2018.
 
 Lucie Ledieu

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE myFile SYSTEM "mid_term.dtd">
+<myFile>
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>file title</title>
+            <author>encoder name</author>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>editor name</publisher>
+            <date when="2024-10-26">26 octobre 2024</date>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc xml:id="journal1">
+               <msIdentifier>
+                  <settlement>Charleville-Mézières</settlement>
+                  <repository> Archives départements des Ardennes</repository>
+                  <idno>classification mark</idno>
+               </msIdentifier>
+               <msContents>
+                  <msItem>
+                     <title>journal title</title>
+                     <author>journal author</author>
+                     <history>My history</history>
+                  </msItem>
+                
+               </msContents>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <!-- division for each journal day -->
+         <div type="day" n="1">
+            <!-- text -->
+            <p>
+               <!-- date (and time if specified)  -->
+               <date when="1914-10-04">4 octobre</date>
+               <time when="01:45:00">01:45</time>
+            </p>
+            <p>
+               <!-- name of a person mentioned -->
+               <persName xml:id="personA">Jacqueline</persName>
+               <!-- name of a place mentioned -->
+               <placeName xml:id="place1"> Sorendal</placeName>
+               <!-- calculations -->
+               <formula/>
+               <!-- drawing -->
+               <figure/>
+               <del/>
+               <!-- writing in the margins -->
+               <note/>
+               <!-- name of an event mentioned -->
+            
+              
+            </p>
+            <!-- page change -->
+           
+         </div>
+         <div type="day" n="2">
+            <p> 
+               Some text: <pb/>
+               <date when="1914-10-05">5 octobre</date>
+               <time when="05:35:00">05:35</time>
+            </p>
+            <p>
+               <!-- text -->
+            </p>
+         </div>
+      </body>
+   </text>
+</myFile>

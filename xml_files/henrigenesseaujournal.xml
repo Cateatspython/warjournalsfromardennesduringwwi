@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
-      
+
       <fileDesc>
-         
+
          <titleStmt>
-            <title>Journal d'occupation rédigé par Henri Genesseau, boulanger à Hannogne-Saint-Martin.</title>
+            <title>Journal d'occupation rédigé par Henri Genesseau, boulanger à
+               Hannogne-Saint-Martin.</title>
             <author>Henri Genesseau</author>
             <respStmt>
                <resp>Transcription</resp>
                <name>Lucie Ledieu</name>
             </respStmt>
          </titleStmt>
-         
+
          <publicationStmt>
             <distributor>Lucie Ledieu</distributor>
             <date>January 2025</date>
@@ -20,7 +21,7 @@
                <licence>published under the MIT license</licence>
             </availability>
          </publicationStmt>
-         
+
          <sourceDesc>
             <msDesc>
                <msIdentifier>
@@ -35,51 +36,58 @@
                </physDesc>
                <history>
                   <origin>
-                     <p>This journal was written by Henri Genesseau during World War I in Hannogne-Saint-Martin in the Ardennes. He recounts his daily life as a baker under the German occupation.</p>
+                     <p>This journal was written by Henri Genesseau during World War I in
+                        Hannogne-Saint-Martin in the Ardennes. He recounts his daily life as a baker
+                        under the German occupation.</p>
                      <date>1914-1915</date>
                   </origin>
                </history>
             </msDesc>
          </sourceDesc>
-         
+
       </fileDesc>
    </teiHeader>
    <text>
       <body>
-         <!-- division for each journal day -->
-         <div type="day" n="2">
-            <!-- text -->
+         <div type="day" n="1">
             <p>
-               <!-- date (and time if specified)  -->
-               <date when="1914-10-04">4 octobre</date>
-               <time when="01:45:00">01:45</time>
-            </p>
-            <p>
-               <!-- name of a person mentioned -->
-               <persName xml:id="personA">Jacqueline</persName>
-               <!-- name of a place mentioned -->
-               <placeName xml:id="place1"> Sorendal</placeName>
-               <!-- calculations -->
-               <formula/>
-               <!-- drawing -->
-               <figure/>
-               <del/>
-               <!-- writing in the margins -->
-               <note place="margin"/>
-               <!-- name of an event mentioned -->
-               <eventName xml:id="event1"/>
-            </p>
-            <!-- passage à la page 2 -->
-            <pb n="2"/>
+               <date when="1914-10-02">2-Vendredi.</date> Absolument rien, toujours des gens a
+                  <placeName xml:id="vrigne_aux_bois1" type="village">Vrigne aux Bois</placeName> et
+                  <placeName xml:id="vivier_au_court1" type="village"
+                        ><abbr>Vivier<expan>Vivier-au-Court</expan></abbr></placeName> qui crient
+               misère sur toute la ligne. <persName xml:id="madamelambert1" type="civil">Madame
+                  Lambert</persName> ne nous apprend rien de bien <sic>interressant</sic>
+               <corr>intéressant</corr>. Le <persName xml:id="cure_dom1" type="civil">curé de
+                     <placeName xml:id="domlemesnil1" type="village"
+                           ><abbr>Dom<expan>Dom-le-Mesnil</expan></abbr></placeName></persName> lui
+               avait dit qu'une bataille avait eu lieu à <unclear reason="illegible">Maumont Dorcien</unclear> et
+               que les allemands avaient perdu beaucoup d'hommes. D'après les dires, ils perdent
+               partout, mais pour finir les choses restent toujours au même état. </p>
          </div>
-         <div type="day">
+         <div type="day" n="2">
             <p>
-               <date when="1914-10-05">5 octobre</date>
-               <time when="05:35:00">05:35</time>
-            </p>
-            <p>
-               <!-- text -->
-            </p>
+               <date when="1914-10-03">3. Samedi.</date> Jour de paie aujourd'hui je pars dès <time
+                  when="07:00:00">7 heures</time> du matin pour le moulin, il s'y trouve déjà 5
+               voitures qui attendent leur tour au chargement et au moins 15 personnes de <placeName
+                  xml:id="vrigne_aux_bois2" type="village">Vrigne</placeName> et d'ailleurs c'est un
+               vrai <sic>pe<del>r</del>llerinage</sic>
+               <corr>pèlerinage</corr>. Je plains aussi <persName xml:id="brolaud" type="civil"
+                  >Brolaud</persName> de voir autant de monde. A mon retour j'ai l'agréable surprise
+               de voir des allemands qui me demandent du beurre et de l'avoine Pas de beurre a vous
+               donner, alors voyons à l'avoine dit le Chef. Il parait qu'il y en a chez <persName
+                  xml:id="marechal1" type="militaire">le maréchal</persName>. Départ pour <persName
+                  xml:id="mrdeglaire1" type="civil">M. Deglaire</persName> et là que découvrent-ils
+               une panoplie de fusils. Grand tra la.la. pillage M. La population est affolée, ils
+               vont mettre le feu au village, entendont dire, aussi qu'il a été imprudent ce gros
+               malin. Après bien des explications j'espère quand même obtenir qu'il n'en sera rien.
+               Ils prennent l'avoine, plusieurs boites de clous et la contente 
+               <pb n="09"/>
+               et si <sic>afirmant</sic><corr>affirmant</corr> leur
+               visite pour lundi ou mardi. je <sic>comte</sic>
+               <corr>compte</corr>
+               <sic>le</sic>
+               <corr>ne</corr> plus les revoir pour ce jour là ; car on nous annonce victoire sur
+               victoire du côté des Français (il est grand temps) </p>
          </div>
       </body>
    </text>

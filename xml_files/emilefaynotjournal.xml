@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
-      
       <fileDesc>
-         
          <titleStmt>
             <title>Carnets de guerre d'Émile Faynot de Thilay, tenus au jour le jour.</title>
             <author>Emile Faynot</author>
@@ -12,14 +10,13 @@
                <name>Lucie Ledieu</name>
             </respStmt>
          </titleStmt>
-         
          <publicationStmt>
             <distributor>Lucie Ledieu</distributor>
             <date>January 2025</date>
             <availability>
                <licence>published under the MIT license</licence>
             </availability>
-         </publicationStmt>  
+         </publicationStmt>
          <sourceDesc>
             <msDesc>
                <msIdentifier>
@@ -34,53 +31,68 @@
                </physDesc>
                <history>
                   <origin>
-                     <p>This journal was written by industrialist Emile Faynot during WWI in the Ardennes at Thilay. It describes the daily life of many civilians during the war.</p>
+                     <p>This journal was written by industrialist Emile Faynot during WWI in the
+                        Ardennes at Thilay. It describes the daily life of many civilians during the
+                        war.</p>
                      <date>1914-1918</date>
                   </origin>
                </history>
             </msDesc>
-            
          </sourceDesc>
-         
       </fileDesc>
    </teiHeader>
    <text>
       <body>
-         <!-- division for each journal day -->
+         <div type="day" n="1">
+            <p>
+               <date when="1915-12-24">Vendredi 24 Xh15.</date> on dit qu'on a enlevé les Nouzonnais
+               de 16 à 38 ans. (une fois de plus). <persName xml:id="martin1" type="civil"
+                  >Martin</persName> les a vus dit-il. Je ne crois pas néanmoins C'est aujourd'hui
+               le Reveillon. On entend chanter ceux qui le font </p>
+         </div>
          <div type="day" n="2">
-            <!-- text -->
             <p>
-               <!-- date (and time if specified)  -->
-               <date when="1914-10-04">4 octobre</date>
-               <time when="01:45:00">01:45</time>
-            </p>
-            <p>
-               <!-- name of a person mentioned -->
-               <persName xml:id="personA">Jacqueline</persName>
-               <!-- name of a place mentioned -->
-               <placeName xml:id="place1"> Sorendal</placeName>
-               <!-- calculations -->
-               <formula/>
-               <!-- drawing -->
-               <figure/>
-               <del/>
-               <!-- writing in the margins -->
-               <note place="margin"/>
-               <!-- name of an event mentioned -->
-               <eventName xml:id="event1"/>
-            </p>
-            <!-- passage à la page 2 -->
-            <pb n="2"/>
+               <date when="1915-12-25">Samedi 25 Xh15.</date> Pour notre petit Noël avons eut
+               l'heureuse fortune d'une promenade par les arbres et par la pluie battante avec
+                  <persName xml:id="mmewatz1" type="civil">Mme</persName> et <persName
+                  xml:id="mrwatz1" type="civil">M. Watz</persName> et en rentrant on a pu contempler
+               l'illuminat(ion) de notre voisin </p>
+            <pb n="45"/>
+            <p> allemand qui a sur table 7 bougies allumées à la fenêtre et qui en manches de
+               chemise mange tout seul et joue de <figure>
+                  <figDesc>dessin d'une fenêtre et d'une bougie</figDesc>
+               </figure>l'ocarina dit serenette On a fêté Noel autrefois aussi, n'est-ce pas
+                  <persName xml:id="lucien1" type="civil">Lucien</persName> et <persName
+                  xml:id="juliette1" type="civil">Juliette</persName>ê ? Pour Noel nous avons eu
+                  <measure quantity="100" unit="gr">100
+                  <abbr>gr<expan>grammes</expan></abbr></measure> de pain gratuit par personne. La
+               noce !! </p>
          </div>
-         <div type="day">
+         <div type="day" n="3">
             <p>
-               <date when="1914-10-05">5 octobre</date>
-               <time when="05:35:00">05:35</time>
-            </p>
+               <date when="1915-12-31">31 Décembre 15</date>. On dit que nos relations sont très
+                  <unclear reason="illegible">...</unclear> avec la <placeName xml:id="grece1"
+                  type="pays">Grèce</placeName>. <time when="08:30:00">Dimanche matin à 8h1/2</time>
+               à <placeName xml:id="chateauregnault2" type="village">Chateau Regnault</placeName>,
+               appel de tous les hommes de 17 à 48 ans, pour les "encaserner" un cent, "pour
+                     <sic>com-<corr>commencer</corr></sic>" dit-on. Le ravitaillement est assez
+               abondant cette fois. </p>
+            <list>
+               <item>Les pommes de terre se vendent 5 F 50, le double de cela à
+                     <abbr>Ch</abbr><expan>âteau</expan>-Regnault.
+               </item>
+               <item>Le beurre ici vaut 3 F 10 en argent.</item>
+               <item>Nous avons des passeports pour demain à Sorendal.</item>
+            </list>
             <p>
-               <!-- text -->
+               <num>768,90</num> bois 12, 
+               <unclear reason="illegible">???</unclear> 
+               <num>2,50</num> soit <num>64,60</num> - <num>14,50</num> = <num>50,10</num>
             </p>
          </div>
+
+
+
       </body>
    </text>
 </TEI>

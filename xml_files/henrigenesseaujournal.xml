@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      
+      <fileDesc>
+         
+         <titleStmt>
+            <title>Journal d'occupation rédigé par Henri Genesseau, boulanger à Hannogne-Saint-Martin.</title>
+            <author>Henri Genesseau</author>
+            <respStmt>
+               <resp>Transcription</resp>
+               <name>Lucie Ledieu</name>
+            </respStmt>
+         </titleStmt>
+         
+         <publicationStmt>
+            <distributor>Lucie Ledieu</distributor>
+            <date>January 2025</date>
+            <availability>
+               <licence>published under the MIT license</licence>
+            </availability>
+         </publicationStmt>
+         
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <settlement>Charleville-Mézières</settlement>
+                  <institution>Archives départementales des Ardennes</institution>
+                  <idno>2Num001</idno>
+               </msIdentifier>
+               <physDesc>
+                  <typeDesc>
+                     <p>Handwritten journal in a squared notebook in black ink</p>
+                  </typeDesc>
+               </physDesc>
+               <history>
+                  <origin>
+                     <p>This journal was written by Henri Genesseau during World War I in Hannogne-Saint-Martin in the Ardennes. He recounts his daily life as a baker under the German occupation.</p>
+                     <date>1914-1915</date>
+                  </origin>
+               </history>
+            </msDesc>
+         </sourceDesc>
+         
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <!-- division for each journal day -->
+         <div type="day" n="2">
+            <!-- text -->
+            <p>
+               <!-- date (and time if specified)  -->
+               <date when="1914-10-04">4 octobre</date>
+               <time when="01:45:00">01:45</time>
+            </p>
+            <p>
+               <!-- name of a person mentioned -->
+               <persName xml:id="personA">Jacqueline</persName>
+               <!-- name of a place mentioned -->
+               <placeName xml:id="place1"> Sorendal</placeName>
+               <!-- calculations -->
+               <formula/>
+               <!-- drawing -->
+               <figure/>
+               <del/>
+               <!-- writing in the margins -->
+               <note place="margin"/>
+               <!-- name of an event mentioned -->
+               <eventName xml:id="event1"/>
+            </p>
+            <!-- passage à la page 2 -->
+            <pb n="2"/>
+         </div>
+         <div type="day">
+            <p>
+               <date when="1914-10-05">5 octobre</date>
+               <time when="05:35:00">05:35</time>
+            </p>
+            <p>
+               <!-- text -->
+            </p>
+         </div>
+      </body>
+   </text>
+</TEI>

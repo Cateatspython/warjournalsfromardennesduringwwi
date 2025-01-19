@@ -1,89 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-<teiHeader>
-   <fileDesc>
-      
-      <titleStmt>
-         <title>Journal de guerre de Simone Camion.</title>
-         <author>Simone Camion</author>
-         <respStmt>
-            <resp>Transcription</resp>
-            <name>Lucie Ledieu</name>
-         </respStmt>
-      </titleStmt>
-      <publicationStmt>
-         <distributor>Lucie Ledieu</distributor>
-         <date>January 2025</date>
-         <availability>
-            <licence>published under the MIT license</licence>
-         </availability>
-      </publicationStmt>
-      <sourceDesc>
-         <msDesc>
-            <msIdentifier>
-               <settlement>Charleville-Mézières</settlement>
-               <institution>Archives départementales des Ardennes</institution>
-               <idno>2Num004</idno>
-            </msIdentifier>
-            <physDesc>
-               <typeDesc>
-                  <p>Handwritten journal in black ink in a small grid notebook</p>
-               </typeDesc>
-            </physDesc>
-            <history>
-               <origin>
-                  <p>This journal was written by young Simone Camion during World War I in the Ardennes at Vivier-au-Court. She added additional pages, newspaper articles and photographs to her notebook.</p>
-                  <date>1914-1918</date>
-               </origin>
-            </history>
-         </msDesc>
-      </sourceDesc>
-   </fileDesc>
-</teiHeader>
-<text>
-   <body>
-   <!-- division for each journal day -->
-   <div type="day" n="1">
-      <p>
-         <date when="1914-08-06">Mardi 26 aout</date>
-         On a tiré toute la nuit : 
-         canon du côté de <placeName xml:id="vrigne_aux_bois1" type="village">Vrigne-aux-Bois</placeName>. fusillade vers <placeName xml:id="lumes1" type="village">Lumes</placeName>.
-         A <time when="04:00:00">4h du matin</time>, Père a jugé prudent de
-         nous trouver un abri à l'usine : Une cave
-         voûtée, il n'en est pas question. Le souvenir 
-         des familles entières enfermées dans leurs
-         caves voûtées par l'écroulement de maisons
-         durant <note type="event" place="mezieres">le siege de Mezières</note>, et morts de 
-         faim, reste trop vivace.
-         Dans le magasin de fer, entre les barres
-         rangées en faisceaux, les obus ou leurs 
-         éclats ne nous toucheront pas avant 
-         d'avoir haché le fer !..
-         Il y a d'ailleurs des gens qui sont déjà
-         venus se réfugier là. <persName xml:id="mrbuvat1" type="civil">Monsieur Buvat</persName>, 
-         malade et ne pouvant pas bouger est 
-         roulé dans ses couvertures avec son chien
-         qui empêche qu'on approche.
-         On a apporté de la paille, et on finit la nuit..
-         <del>et</del> Nous rentrons à la maison !
-      </p>
-      <pb n="24"/>
-      <p>
-         Calme relatif. puis le soir nous montons
-         au grenier : la ferme de <placeName xml:id="manil1" type="lieu-dit"><abbr>Manil<expan>Le Manil</expan></abbr></placeName> brûle,
-         beaucoup de fumée sur <placeName xml:id="vrigne_meuse1" type="village">Vrigne-Meuse</placeName> et 
-         <placeName xml:id="sedan" type="ville">Sedan</placeName>. Les batteries françaises et <placeName xml:id="croix_piot1" type="lieu-dit">le Croix Piot</placeName>
-         se sont tues. 
-         Des Allemands sont entrés à la <placeName xml:id="mairievivier1" type="batiment">Mairie</placeName>. Ils
-         ont pris 10 otages qu'ils y ont enfermés, et 
-         ont annoncé que les soldats logeraient 
-         chez les habitants . mais ils ne sont pas venus.
-         Le <placeName xml:id="depotfarinevivier1" type="batiment">dépot de farine de la commune</placeName>, et
-         les denrées chez les commerçants ont été
-         enlevés et les maisons des émigrés pillées.
-         Nous avons couché dans le vestibule. 
-      </p>
-      </div>
-   </body>
-</text>
+<?xml-model href="relaxngfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
+   <teiHeader>
+      <fileDesc>
+
+         <titleStmt>
+            <title>Journal de guerre de Simone Camion.</title>
+            <author>Simone Camion</author>
+            <respStmt>
+               <resp>Transcription</resp>
+               <name>Lucie Ledieu</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <distributor>Lucie Ledieu</distributor>
+            <date>January 2025</date>
+            <availability>
+               <licence>published under the MIT license</licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <settlement>Charleville-Mézières</settlement>
+                  <institution>Archives départementales des Ardennes</institution>
+                  <idno>2Num004</idno>
+               </msIdentifier>
+               <physDesc>
+                  <typeDesc>
+                     <p>Handwritten journal in black ink in a small grid notebook</p>
+                  </typeDesc>
+               </physDesc>
+               <history>
+                  <origin>
+                     <p>This journal was written by young Simone Camion during World War I in the
+                        Ardennes at Vivier-au-Court. She added additional pages, newspaper articles
+                        and photographs to her notebook.</p>
+                     <date>1914-1918</date>
+                  </origin>
+               </history>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <!-- division for each journal day -->
+         <div type="day" n="1">
+            <p>
+               <date when="1914-08-06">Mardi 26 aout</date> On a tiré toute la nuit : canon du côté
+               de <placeName xml:id="vrigne_aux_bois1" type="village">Vrigne-aux-Bois</placeName>.
+               fusillade vers <placeName xml:id="lumes1" type="village">Lumes</placeName>. A <time
+                  when="04:00:00">4h du matin</time>, Père a jugé prudent de nous trouver un abri à
+               l'usine : Une cave voûtée, il n'en est pas question. Le souvenir des familles
+               entières enfermées dans leurs caves voûtées par l'écroulement de maisons durant <note
+                  type="event" place="mezieres">le siege de Mezières</note>, et morts de faim, reste
+               trop vivace. Dans le magasin de fer, entre les barres rangées en faisceaux, les obus
+               ou leurs éclats ne nous toucheront pas avant d'avoir haché le fer !.. Il y a
+               d'ailleurs des gens qui sont déjà venus se réfugier là. <persName xml:id="mrbuvat1"
+                  type="civil">Monsieur Buvat</persName>, malade et ne pouvant pas bouger est roulé
+               dans ses couvertures avec son chien qui empêche qu'on approche. On a apporté de la
+               paille, et on finit la nuit.. <del>et</del> Nous rentrons à la maison ! </p>
+            <pb n="24"/>
+            <p> Calme relatif. puis le soir nous montons au grenier : la ferme de <placeName
+                  xml:id="manil1" type="lieu-dit"><abbr>Manil<expan>Le
+                  Manil</expan></abbr></placeName> brûle, beaucoup de fumée sur <placeName
+                  xml:id="vrigne_meuse1" type="village">Vrigne-Meuse</placeName> et <placeName
+                  xml:id="sedan" type="ville">Sedan</placeName>. Les batteries françaises et
+                  <placeName xml:id="croix_piot1" type="lieu-dit">le Croix Piot</placeName> se sont
+               tues. Des Allemands sont entrés à la <placeName xml:id="mairievivier1"
+                  type="batiment">Mairie</placeName>. Ils ont pris 10 otages qu'ils y ont enfermés,
+               et ont annoncé que les soldats logeraient chez les habitants . mais ils ne sont pas
+               venus. Le <placeName xml:id="depotfarinevivier1" type="batiment">dépot de farine de
+                  la commune</placeName>, et les denrées chez les commerçants ont été enlevés et les
+               maisons des émigrés pillées. Nous avons couché dans le vestibule. </p>
+         </div>
+      </body>
+   </text>
 </TEI>

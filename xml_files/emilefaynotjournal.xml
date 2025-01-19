@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml-model href="relaxngfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -79,20 +80,15 @@
                abondant cette fois. </p>
             <list>
                <item>Les pommes de terre se vendent 5 F 50, le double de cela à
-                     <abbr>Ch</abbr><expan>âteau</expan>-Regnault.
-               </item>
+                     <abbr>Ch</abbr><expan>âteau</expan>-Regnault. </item>
                <item>Le beurre ici vaut 3 F 10 en argent.</item>
                <item>Nous avons des passeports pour demain à Sorendal.</item>
             </list>
             <p>
-               <num>768,90</num> bois 12, 
-               <unclear reason="illegible">???</unclear> 
+               <num>768,90</num> bois 12, <unclear reason="illegible">???</unclear>
                <num>2,50</num> soit <num>64,60</num> - <num>14,50</num> = <num>50,10</num>
             </p>
          </div>
-
-
-
       </body>
    </text>
 </TEI>

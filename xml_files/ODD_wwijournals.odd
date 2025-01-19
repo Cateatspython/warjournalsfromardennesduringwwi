@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title type="short">oddbyexample</title>
+            <title>ODD by Example customization</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Unpublished first draft </p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Derived from <ref
+                  target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">base
+                  odd</ref> after an analysis of 3 files in
+               file:/home/lucie-ledieu/Documents/warjournalsfromardennesduringwwi/xml_files/</p>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <abstract>
+            <p>The project aims to preserve civilian journals written during the First World War in
+               the Ardennes by encoding them based on digitizations available on the website, using
+               a sustainable format such as XML-TEI. </p>
+            <p>The transcription and editing of these documents, often difficult to read due to
+               their condition or handwritten nature, make them more accessible by improving their
+               legibility and enabling advanced search functionalities.</p>
+            <p>A potential future direction for the project could involve creating an interactive
+               online resource, allowing for the exploration of texts, data visualization, and
+               educational use, thus ensuring their accessibility and long-term preservation.</p>
+         </abstract>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+
+
+
+         <schemaSpec ident="oddbyexample" start="TEI ">
+
+            <!--Define at least 3 rules-->
+
+            <!--rule 1 : A rule constraining the use of an attribute and its value(s)-->
+            <elementSpec ident="persName" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="replace" type="closed">
+                        <valItem ident="civil" xml:lang="en">
+                           <desc>Represents a civilian person.</desc>
+                        </valItem>
+                        <valItem ident="militaire" xml:lang="en">
+                           <desc>Represents a military person.</desc>
+                        </valItem>
+                     </valList>
+                     <!-- Forces persName attribute to be either civilian or military -->
+                  </attDef>
+               </attList>
+            </elementSpec>
+
+            <!-- rule 2 : A rule constraining the sequence of certain elements (<content>); -->
+            <elementSpec ident="div" mode="change">
+               <content>
+                  <sequence>
+                     <!-- The div element is required -->
+                     <elementRef key="div" minOccurs="1"/>
+                     <!-- After div, the date element is optional -->
+                     <elementRef key="date" minOccurs="0"/>
+                     <!-- Then, the time element is also optional -->
+                     <elementRef key="time" minOccurs="0"/>
+                  </sequence>
+               </content>
+            </elementSpec>
+
+            <!-- rule 3 : A rule constraining the value of an attribute or the use of an element or attribute depending on its environment (<constraint> + <sch:rule>) -->
+            <elementSpec ident="div" mode="change">
+               <constraintSpec ident="dateHasWhen" scheme="schematron" type="SSK">
+                  <constraint>
+                     <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:tei="http://www.tei-c.org/ns/1.0">
+                        <!-- Context: the 'date' element inside a 'div' of type 'day'. -->
+                        <sch:rule context="tei:div[@type='day']/tei:date">
+                           <!-- Assertion: check that the 'when' attribute is present. -->
+                           <sch:assert test="@when" role="error"> Chaque élément &lt;date&gt; dans
+                              &lt;div type='day'&gt; doit avoir un attribut 'when'. </sch:assert>
+                        </sch:rule>
+                     </sch:schema>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+
+            <moduleRef key="tei"/>
+            <!--Checking module textcrit-->
+            <classRef key="att.textCritical"/>
+            <classRef key="model.rdgLike"/>
+            <classRef key="model.rdgPart"/>
+            <classSpec ident="att.textCritical" type="atts" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="varSeq" mode="delete"/>
+                  <attDef ident="require" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module msdescription-->
+            <classRef key="model.physDescPart"/>
+            <moduleRef key="msdescription"
+               include="msDesc msIdentifier institution physDesc typeDesc history origin"/>
+            <elementSpec ident="msDesc" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="origin" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>msDesc is used to describe the document studied, including information on how
+                     to consult it, its physical description and its history.</p>
+                  <p> msIdentifier provides the necessary information to locate the physical
+                     document</p>
+                  <p>institution indicates the location where the document is kept.</p>
+                  <p>physdesc provides information about the physical description of the
+                     document</p>
+                  <p>typeDesc describes the type of the document.</p>
+                  <p>history provides a brief explanation of the historical context of the
+                     document.</p>
+                  <p>origin describes the context in which the document was written.</p>
+               </remarks>
+            </elementSpec>
+            <!--Checking module namesdates-->
+            <classRef key="model.persNamePart"/>
+            <moduleRef key="namesdates" include="persName placeName settlement"/>
+            <elementSpec ident="persName" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="civil"/>
+                        <valItem ident="militaire"/>
+                     </valList>
+                  </attDef>
+               </attList>
+               <remarks>
+                  <p>persName signals the presence of a person's name. Within body, it is used with
+                     an identifier and a type attribute to indicate whether the person is a civilian
+                     or a military figure</p>
+                  <p>placeName signals the presence of a place name. Within body, it is used with an
+                     identifier and an attribute that indicates whether it is a village, a building,
+                     a locality, or a country.</p>
+                  <p>settlement is used in the teiHeader to indicate where the document is
+                     stored</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="placeName" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="batiment"/>
+                        <valItem ident="lieu-dit"/>
+                        <valItem ident="pays"/>
+                        <valItem ident="village"/>
+                        <valItem ident="ville"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="settlement" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module dictionaries-->
+            <classRef key="att.lexicographic"/>
+            <classRef key="model.entryLike"/>
+            <classRef key="model.formPart"/>
+            <classRef key="model.gramPart"/>
+            <classRef key="model.lexicalRefinement"/>
+            <classRef key="model.morphLike"/>
+            <classRef key="model.ptrLike.form"/>
+            <classSpec ident="att.lexicographic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="split" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="location" mode="delete"/>
+                  <attDef ident="mergedIn" mode="delete"/>
+                  <attDef ident="opt" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module tagdocs-->
+            <classRef key="att.combinable"/>
+            <classRef key="att.identified"/>
+            <classRef key="model.contentPart"/>
+            <classSpec ident="att.combinable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="mode" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.identified" type="atts" mode="change">
+               <attList>
+                  <attDef ident="ident" mode="delete"/>
+                  <attDef ident="predeclare" mode="delete"/>
+                  <attDef ident="module" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.ascribed.directed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="toWhom" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.dimensions" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unit" mode="delete"/>
+                  <attDef ident="quantity" mode="delete"/>
+                  <attDef ident="extent" mode="delete"/>
+                  <attDef ident="precision" mode="delete"/>
+                  <attDef ident="scope" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.damaged" type="atts" mode="change">
+               <attList>
+                  <attDef ident="agent" mode="delete"/>
+                  <attDef ident="degree" mode="delete"/>
+                  <attDef ident="group" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable.w3c" type="atts" mode="change">
+               <attList>
+                  <attDef ident="notBefore" mode="delete"/>
+                  <attDef ident="notAfter" mode="delete"/>
+                  <attDef ident="from" mode="delete"/>
+                  <attDef ident="to" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.datable" type="atts" mode="change">
+               <attList>
+                  <attDef ident="period" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.divLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+                  <attDef ident="sample" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.media" type="atts" mode="change">
+               <attList>
+                  <attDef ident="width" mode="delete"/>
+                  <attDef ident="height" mode="delete"/>
+                  <attDef ident="scale" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.measurement" type="atts" mode="change">
+               <attList>
+                  <attDef ident="unitRef" mode="delete"/>
+                  <attDef ident="commodity" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.naming" type="atts" mode="change">
+               <attList>
+                  <attDef ident="role" mode="delete"/>
+                  <attDef ident="nymRef" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.typed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="subtype" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.pointing.group" type="atts" mode="change">
+               <attList>
+                  <attDef ident="domains" mode="delete"/>
+                  <attDef ident="targFunc" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.segLike" type="atts" mode="change">
+               <attList>
+                  <attDef ident="function" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.timed" type="atts" mode="change">
+               <attList>
+                  <attDef ident="start" mode="delete"/>
+                  <attDef ident="end" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.transcriptional" type="atts" mode="change">
+               <attList>
+                  <attDef ident="status" mode="delete"/>
+                  <attDef ident="cause" mode="delete"/>
+                  <attDef ident="seq" mode="delete"/>
+               </attList>
+            </classSpec>
+            <classSpec ident="att.personal" type="atts" mode="change">
+               <attList>
+                  <attDef ident="full" mode="delete"/>
+                  <attDef ident="sort" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module core-->
+            <moduleRef key="core"
+               include="p sic corr del unclear name num measure date time abbr expan list item note pb author respStmt resp title"/>
+            <elementSpec ident="corr" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>corr is used with sic to write the correction of an error in the text</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="del" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>del is used to indicate erasure</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="unclear" mode="change">
+               <attList>
+                  <attDef ident="reason" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="illegible"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="agent" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>unclear is used to indicate the presence of an illegible word. It is used with
+                     an “illegible” element to specify this feature.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="name" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="num" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>num is used to signal numerical values</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="measure" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="unit" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="gr"/>
+                     </valList>
+                  </attDef>
+               </attList>
+               <remarks>
+                  <p>measure is used to indicate the presence of a unit of measurement. It is
+                     specified with two attributes, one with the weight and the other with the unit
+                     of measure</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="date" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>date is used to signal the presence of a date in the text with a when
+                     attribute. This tag is very useful because it allows the exact date to be
+                     recorded when it is not fully provided in the text.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="time" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>time is used to signal the presence of a time in the text with a when attribute
+                     that provides the exact time.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="abbr" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>abbr is used to signal an abbreviation. It is used with expan to provide the
+                     full word.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="list" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>list signals the presence of a list. It is used with item to enclose each line
+                     of the list.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="note" mode="change">
+               <attList>
+                  <attDef ident="place" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="mezieres"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="event"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="pb" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>pb signals a page break with the number of the following page</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="author" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>author designates the author of the original text.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="resp" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>resp is used to designate a type of responsibility, here transcription. It is
+                     used with name to give the name of the person responsible.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="title" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="level" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>title is the name of the original text.</p>
+               </remarks>
+            </elementSpec>
+            <!--Checking module figures-->
+            <moduleRef key="figures" include="figure figDesc"/>
+            <elementSpec ident="figure" mode="change">
+               <attList>
+                  <attDef ident="place" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>figure is used with figDesc to signal the presence of a drawing and a brief
+                     description</p>
+               </remarks>
+            </elementSpec>
+            <!--Checking module header-->
+            <moduleRef key="header"
+               include="teiHeader fileDesc titleStmt publicationStmt distributor idno availability licence sourceDesc"/>
+            <elementSpec ident="idno" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+               <remarks>
+                  <p>teiHeader contains the main information about the TEI document, such as
+                     metadata and editorial details.</p>
+                  <p>fileDesc contains information about the title of the document, such as the main
+                     title, subtitles, and other related information.</p>
+                  <p>publicationStmt describes the information related to the publication of the
+                     document, such as the date, place, and publisher.</p>
+                  <p>distributor indicates the entity responsible for distributing the document</p>
+                  <p>idno contains the document's shelf mark.</p>
+                  <p>availability provides information about the document's availability</p>
+                  <p>licence describes the license conditions of the document, such as copyright or
+                     specific permissions for using the text.</p>
+                  <p>sourceDesc provides details about the source of the text, including its
+                     provenance, creation conditions, and version of the document.</p>
+               </remarks>
+            </elementSpec>
+            <elementSpec ident="availability" mode="change">
+               <attList>
+                  <attDef ident="status" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="licence" mode="change">
+               <attList>
+                  <attDef ident="calendar" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <!--Checking module gaiji-->
+            <classRef key="att.gaijiProp"/>
+            <classSpec ident="att.gaijiProp" type="atts" mode="change">
+               <attList>
+                  <attDef ident="name" mode="delete"/>
+                  <attDef ident="value" mode="delete"/>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="scheme" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module verse-->
+            <!--Checking module transcr-->
+            <!--Checking module linking-->
+            <!--Checking module analysis-->
+            <classRef key="att.linguistic"/>
+            <classSpec ident="att.linguistic" type="atts" mode="change">
+               <attList>
+                  <attDef ident="lemma" mode="delete"/>
+                  <attDef ident="lemmaRef" mode="delete"/>
+                  <attDef ident="pos" mode="delete"/>
+                  <attDef ident="msd" mode="delete"/>
+                  <attDef ident="join" mode="delete"/>
+               </attList>
+            </classSpec>
+            <!--Checking module textstructure-->
+            <moduleRef key="textstructure" include="TEI text body div"/>
+            <elementSpec ident="TEI" mode="change">
+               <attList>
+                  <attDef ident="version" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="text" mode="change">
+               <attList>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="div" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="day"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+         </schemaSpec>
+      </body>
+   </text>
+</TEI>

@@ -30,7 +30,6 @@ hommes de 17 à 48 ans, pour les
 "commencer" dit-on .
 Le ravitaillement est assez
 abondant cette fois
-<liste>
 - les pommes de terre se vendent 5 F 50
 le double de cela à Ch<abbr>-Regnault.
 - Le beurre, ici vaut 3F10 en argent
